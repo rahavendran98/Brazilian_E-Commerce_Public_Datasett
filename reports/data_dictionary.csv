@@ -1,0 +1,53 @@
+table_name,column_name,data_type,non_null_count,missing_pct,unique_values,sample_value,description
+orders,order_id,str,99441,0.0,99441,e481f51cbdc54678b7cc49136f2d6af7,Unique ID for each order (primary key)
+orders,customer_id,str,99441,0.0,99441,9ef432eb6251297304e76186b10a928d,Links order to a customer (one per order)
+orders,order_status,str,99441,0.0,8,delivered,"Order state: delivered, shipped, canceled, etc."
+orders,order_purchase_timestamp,str,99441,0.0,98875,2017-10-02 10:56:33,When the customer placed the order
+orders,order_approved_at,str,99281,0.16,90733,2017-10-02 11:07:15,When payment was approved
+orders,order_delivered_carrier_date,str,97658,1.79,81018,2017-10-04 19:55:00,When order was handed to courier
+orders,order_delivered_customer_date,str,96476,2.98,95664,2017-10-10 21:25:13,When order reached the customer
+orders,order_estimated_delivery_date,str,99441,0.0,459,2017-10-18 00:00:00,Promised delivery date
+customers,customer_id,str,99441,0.0,99441,06b8999e2fba1a1fbc88172c00ba8bc7,Links order to a customer (one per order)
+customers,customer_unique_id,str,99441,0.0,96096,861eff4711a542e4b93843c6dd7febb0,Real customer identity across multiple orders
+customers,customer_zip_code_prefix,int64,99441,0.0,14994,14409,Customer location zip code
+customers,customer_city,str,99441,0.0,4119,franca,Customer city
+customers,customer_state,str,99441,0.0,27,SP,"Customer state (e.g. SP, RJ)"
+order_items,order_id,str,112650,0.0,98666,00010242fe8c5a6d1ba2dd792cb16214,Unique ID for each order (primary key)
+order_items,order_item_id,int64,112650,0.0,21,1,Item sequence number within an order
+order_items,product_id,str,112650,0.0,32951,4244733e06e7ecb4970a6e2683c13e61,Unique product identifier
+order_items,seller_id,str,112650,0.0,3095,48436dade18ac8b2bce089ec2a041202,Unique seller identifier
+order_items,shipping_limit_date,str,112650,0.0,93318,2017-09-19 09:45:35,Deadline for seller to ship
+order_items,price,float64,112650,0.0,5968,58.9,Product price
+order_items,freight_value,float64,112650,0.0,6999,13.29,Shipping cost
+payments,order_id,str,103886,0.0,99440,b81ef226f3fe1789b1e8b2acac839d17,Unique ID for each order (primary key)
+payments,payment_sequential,int64,103886,0.0,29,1,
+payments,payment_type,str,103886,0.0,5,credit_card,"credit_card, boleto, voucher, debit_card"
+payments,payment_installments,int64,103886,0.0,24,8,Number of EMI installments
+payments,payment_value,float64,103886,0.0,29077,99.33,Amount paid
+reviews,review_id,str,99224,0.0,98410,7bc2406110b926393aa56f80a40eba40,
+reviews,order_id,str,99224,0.0,98673,73fc7af87114b39712e6da79b0a377eb,Unique ID for each order (primary key)
+reviews,review_score,int64,99224,0.0,5,4,Customer rating 1 to 5
+reviews,review_comment_title,str,11568,88.34,4527,recomendo,
+reviews,review_comment_message,str,40977,58.7,36159,Recebi bem antes do prazo estipulado.,
+reviews,review_creation_date,str,99224,0.0,636,2018-01-18 00:00:00,
+reviews,review_answer_timestamp,str,99224,0.0,98248,2018-01-18 21:46:59,
+products,product_id,str,32951,0.0,32951,1e9e8ef04dbcff4541ed26657ea517e5,Unique product identifier
+products,product_category_name,str,32341,1.85,73,perfumaria,Product category (Portuguese)
+products,product_name_lenght,float64,32341,1.85,66,40.0,
+products,product_description_lenght,float64,32341,1.85,2960,287.0,
+products,product_photos_qty,float64,32341,1.85,19,1.0,
+products,product_weight_g,float64,32949,0.01,2204,225.0,Product weight in grams
+products,product_length_cm,float64,32949,0.01,99,16.0,
+products,product_height_cm,float64,32949,0.01,102,10.0,
+products,product_width_cm,float64,32949,0.01,95,14.0,
+sellers,seller_id,str,3095,0.0,3095,3442f8959a84dea7ee197c632cb2df15,Unique seller identifier
+sellers,seller_zip_code_prefix,int64,3095,0.0,2246,13023,
+sellers,seller_city,str,3095,0.0,611,campinas,Seller city
+sellers,seller_state,str,3095,0.0,23,SP,Seller state
+category_tr,product_category_name,str,71,0.0,71,beleza_saude,Product category (Portuguese)
+category_tr,product_category_name_english,str,71,0.0,71,health_beauty,Product category (English)
+geolocation,geolocation_zip_code_prefix,int64,1000163,0.0,19015,1037,
+geolocation,geolocation_lat,float64,1000163,0.0,717360,-23.54562128115268,Latitude of zip code
+geolocation,geolocation_lng,float64,1000163,0.0,717613,-46.63929204800168,Longitude of zip code
+geolocation,geolocation_city,str,1000163,0.0,8011,sao paulo,
+geolocation,geolocation_state,str,1000163,0.0,27,SP,
