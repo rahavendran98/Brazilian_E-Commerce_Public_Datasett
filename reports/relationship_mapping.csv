@@ -1,0 +1,10 @@
+parent_table,parent_key,child_table,child_key,cardinality,join_type,notes
+customers_s,customer_id,order_level,customer_id,1:M,left,One customer can have multiple orders
+orders_s,order_id,order_level,order_id,1:1,left,Each order appears once in order_level
+pay_agg,order_id,order_level,order_id,1:1,left,Payment summary merged into order_level
+rev_agg,order_id,order_level,order_id,1:1,left,Review summary merged into order_level
+geo_clean,geolocation_zip_code_prefix,order_level,customer_zip_code_prefix,1:M,left,Customer location information added
+products_s,product_id,item_level,product_id,1:M,left,One product can appear in many order items
+category_tr_s,product_category_name,item_level,product_category_name,1:M,left,Category translation added to products
+sellers_s,seller_id,item_level,seller_id,1:M,left,One seller can sell many items
+orders_s,order_id,item_level,order_id,1:M,left,One order can contain multiple items
