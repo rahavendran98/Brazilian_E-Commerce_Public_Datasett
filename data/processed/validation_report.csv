@@ -1,0 +1,11 @@
+check,passed,detail,status
+Schema [order_level],True,All columns present,PASS
+DataTypes [order_level],False,"order_id is str, expected object",FAIL
+Missing [order_level],True,No missing in critical cols,PASS
+BusinessRules [order_level],True,All rules pass,PASS
+Consistency [order_level],True,Consistent,PASS
+Consistency [order_level],True,Consistent,PASS
+Schema [item_level],True,All columns present,PASS
+BusinessRules [item_level],True,All rules pass,PASS
+RefIntegrity [orders->customer],True,No orphans,PASS
+RefIntegrity [item->order],True,No orphans,PASS

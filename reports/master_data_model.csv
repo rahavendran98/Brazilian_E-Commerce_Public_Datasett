@@ -1,0 +1,12 @@
+table,grain,primary_key,foreign_keys,rows,analytical_role
+orders,One row per order,order_id,customer_id,10000,Fact — order lifecycle
+customers,One row per order-customer mapping,customer_id,customer_zip_code_prefix → geolocation,10000,Dimension — customer attributes
+order_items,One row per item per order,order_id + order_item_id,"order_id, product_id, seller_id",11383,Fact — item-level revenue
+payments,One row per payment record per order,order_id + payment_sequential,order_id,10476,Fact — payment behavior
+reviews,One row per review,review_id,order_id,9959,Fact — customer satisfaction
+products,One row per product,product_id,product_category_name → category_tr,6747,Dimension — product attributes
+sellers,One row per seller,seller_id,seller_zip_code_prefix → geolocation,1654,Dimension — seller attributes
+category_tr,One row per product category,product_category_name,none,71,Lookup — category translation
+geolocation,One row per zip code (after dedup),geolocation_zip_code_prefix,none,6486,Dimension — geographic coordinates
+order_level,One row per order (integrated flat table),order_id,joins: orders+customers+payments+reviews+geo,10000,Analytical — order-level analysis
+item_level,One row per item per order (integrated flat table),order_id + order_item_id,joins: items+products+sellers+category+orders,11383,Analytical — product/seller analysis
